@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --i-size: 40px;
+    --invert-value: invert(57%) sepia(14%) saturate(418%) hue-rotate(292deg) brightness(91%) contrast(88%);; 
+    --invert-hover: invert(82%) sepia(6%) saturate(5377%) hue-rotate(299deg) brightness(128%) contrast(117%);
+    --col1: #9D8189;
+    --col2: #F4ACB7;
+    --col3: #FFCAD4;
+    --col4: #FFE5D9;
+    --col5: #D8E2DC;
+}
+
+body {
+    background-color: #141414;
+}
+
+/* Tabs Icons */
+.i-home {
+    background: url("./img/home.svg") center no-repeat;
+    background-size: cover;
+    filter: var(--invert-value);
+    width: var(--i-size);
+    height: var(--i-size);
+    display: block;
+}
+
+.i-user {
+    background: url("./img/user.svg") center no-repeat;
+    background-size: cover;
+    filter: var(--invert-value);
+    width: var(--i-size);
+    height: var(--i-size);
+    display: block;
+}
+
+.i-post {
+    background: url("./img/file-document.svg") center no-repeat;
+    background-size: cover;
+    filter: var(--invert-value);
+    width: var(--i-size);
+    height: var(--i-size);
+    display: block;
+}
+
+.i-logoff {
+    background: url("./img/log-off.svg") center no-repeat;
+    background-size: cover;
+    filter: var(--invert-value);
+    width: var(--i-size);
+    height: var(--i-size);
+    display: block;
+}
+
+/* Header */
+header {
+    width: 300px;
+    min-height: 100vh;
+    transition: all 2s ease-in-out;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 800;
+}
+
+header.closed, header.closed header::before{
+    transform: translateX(-200px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+header.closed a {
+    display: none;
+    transition: all 2s ease-in-out;
+}
+
+header.closed .btn {
+    transform: translateX(100px);
+    transition: all 2s ease-in-out;
+}
+
+header.closed ul {
+    transform: translateX(160px);
+    transition: all 2s ease-in-out;
+}
+
+header.closed li {
+    width: auto;
+}
+
+header::before {
+    content: "";
+    background-color: var(--col1);
+    width: 300px;
+    height: 100vh;
+    position: absolute;
+    border-right: 10px solid var(--col5);
+}
+
+header a {
+    text-decoration: none;
+    color: var(--col1);
+}
+
+nav {
+    z-index: 900;
+    margin-top: 30vh;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 200px;
+    height: 50vh;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 100px;
+    background-color: var(--col5);
+    width: 100%;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: var(--col2);
+}
+
+header i {
+    margin-right: 20px;
+}
+
+li:focus {
+    background-color: var(--col3);
+}
+
+/* BTN */
+.btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vh;
+    border: 4px solid white;
+    border-radius: 100px;
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+    z-index: 900;
+}
+
+.btn:hover {
+    border: 4px solid var(--col2);
+    transition: all 1s ease-in-out;
+    padding: 20px;
+    transform: rotate(360deg);
+}
+
+.btn:hover span::after, .btn:hover span::before {
+    background-color: var(--col2);
+}
+
+.btn span {
+    width: 30px;
+    height: 4px;
+    transition: all 2s ease-in-out;
+    background-color: transparent;
+    position: absolute;
+}
+
+.btn span::after, .btn span::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    transition: all 2s ease-in-out;
+    background-color: white;
+}
+
+.btn span::before {
+    transform: rotate(-45deg) translateY(0px) translateX(0px);
+}
+
+.btn span::after {
+    transform: rotate(45deg) translateY(0px) translateX(0px);
+}
+
+header.closed .btn span::before {
+    transform: rotate(45deg) translateY(-10px);
+    width: 25px;
+}
+
+header.closed .btn span::after {
+    transform: rotate(-45deg) translateY(10px);
+    width: 25px;
+}
